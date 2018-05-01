@@ -11,11 +11,11 @@ private String correo;
 private boolean agregado;
 private int foto;
 
-    public Contacto(String nombre, String telefono, String correo, boolean agregado, int foto) {
+    public Contacto(String nombre, String telefono, String correo, int foto) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
-        this.agregado = agregado;
+        agregado = false;
         this.foto = foto;
     }
 
