@@ -4,14 +4,14 @@ package com.andres00099216.parcial1;
  * Created by Andres on 30/4/2018.
  */
 
-public class Contactos {
+public class Contacto {
 private String nombre;
 private String telefono;
 private String correo;
 private boolean agregado;
 private int foto;
 
-    public Contactos(String nombre, String telefono, String correo, boolean agregado, int foto) {
+    public Contacto(String nombre, String telefono, String correo, boolean agregado, int foto) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
