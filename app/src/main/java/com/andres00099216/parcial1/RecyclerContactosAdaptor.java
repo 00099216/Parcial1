@@ -34,7 +34,7 @@ public abstract class RecyclerContactosAdaptor extends RecyclerView.Adapter<Recy
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
      holder.texto.setText(Contactos.get(position).getNombre());
-     holder.foto.setImageResource(R.drawable.generic_picture);
+     holder.foto.setImageResource(Contactos.get(position).getFoto());
 
 
         if(Contactos.get(position).isAgregado()) {
