@@ -26,7 +26,7 @@
             android:id="@+id/add_nombre_contacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingrese nombre"
+            android:text=""
             android:layout_marginBottom="10dp"/>
 
         <TextView
@@ -38,7 +38,7 @@
             android:id="@+id/add_telefono_contacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingrese telefono"
+            android:text=""
             android:layout_marginBottom="10dp"/>
 
         <TextView
@@ -50,7 +50,7 @@
             android:id="@+id/add_correo_contacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingrese correo"
+            android:text=""
             android:layout_marginBottom="10dp"/>
         <Button
             android:id="@+id/crear_contacto"

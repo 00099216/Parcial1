@@ -1,24 +1,28 @@
 package com.andres00099216.parcial1;
 
+import java.io.Serializable;
+
 /**
  * Created by Andres on 30/4/2018.
  */
 
-public class Contacto {
+public class Contacto implements Serializable{
 private String nombre;
 private String telefono;
 private String correo;
 private boolean agregado;
 private int foto;
 
-    public Contacto(String nombre, String telefono, String correo, int foto) {
+//Constructor del objeto
+    public Contacto (String nombre, String telefono, String correo) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
         agregado = false;
-        this.foto = foto;
+        foto = R.drawable.generic_picture;
     }
 
+    // Setters y getters
     public String getNombre() {
         return nombre;
     }

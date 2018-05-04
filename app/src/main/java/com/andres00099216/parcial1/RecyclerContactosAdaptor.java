@@ -9,6 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +17,8 @@ import java.util.ArrayList;
  */
 
 public abstract class RecyclerContactosAdaptor extends RecyclerView.Adapter<RecyclerContactosAdaptor.ViewHolder> {
- private ArrayList<Contacto> Contactos;
+    //Se declaran variables
+    private ArrayList<Contacto> Contactos;
     private static boolean agregado =false;
 
  public RecyclerContactosAdaptor(ArrayList<Contacto> Contactos){this.Contactos=Contactos;}
