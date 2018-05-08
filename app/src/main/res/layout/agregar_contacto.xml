@@ -50,7 +50,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Telefono"
+            android:text="@string/telefono_text"
             android:textSize="25dp" />
 
         <EditText
@@ -58,12 +58,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:hint="@string/insert_phone_hint"
             android:text="" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Correo"
+            android:text="@string/correo_text"
             android:textSize="25dp" />
 
         <EditText
@@ -71,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
+            android:hint="@string/insert_email_hint"
             android:text="" />
 
         <Button
@@ -78,7 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Aregar" />
+            android:text="@string/aregar_text" />
     </LinearLayout>
 
 

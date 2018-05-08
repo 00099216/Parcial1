@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">parcial1</string>
+    <string name="telefono_text">Telefono</string>
+    <string name="insert_phone_hint">Inserte telefono</string>
+    <string name="correo_text">Email</string>
+    <string name="insert_email_hint">Inserte email</string>
+    <string name="aregar_text">Agregar</string>
+    <string name="normal">Contacto</string>
+    <string name="favorito">Favorito</string>
+</resources>

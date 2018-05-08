@@ -67,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(pagerAdapter);
 
         //Se le agregan los fragmentos
-        pagerAdapter.addFragment(FragmentoContactos.newInstance(0, Contactos), "Contactos");
-        pagerAdapter.addFragment(FragmentoContactos.newInstance(1, Contactos), "favoritos");
+        pagerAdapter.addFragment(FragmentoContactos.newInstance(0, Contactos), getString(R.string.normal));
+        pagerAdapter.addFragment(FragmentoContactos.newInstance(1, Contactos), getString(R.string.favorito));
 
 
         //Se incorporan los titulos

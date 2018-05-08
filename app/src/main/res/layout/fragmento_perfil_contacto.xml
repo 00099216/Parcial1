@@ -23,21 +23,18 @@
             android:id="@+id/nombre_contacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre"
             android:textSize="25dp" />
 
         <TextView
             android:id="@+id/telefono_contacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Telefono"
             android:textSize="25dp" />
 
         <TextView
             android:id="@+id/correo_contacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Correo"
             android:textSize="25dp" />
     </LinearLayout>
 

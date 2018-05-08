@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">parcial1</string>
+    <string name="telefono_text">Phone</string>
+    <string name="insert_phone_hint">Insert phone</string>
+    <string name="correo_text">Email</string>
+    <string name="insert_email_hint">Insert email</string>
+    <string name="aregar_text">ADD</string>
+    <string name="normal">Contact</string>
+    <string name="favorito">Favorite</string>
 </resources>
