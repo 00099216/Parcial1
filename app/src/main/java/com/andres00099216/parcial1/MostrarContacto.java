@@ -31,7 +31,7 @@ public class MostrarContacto extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //Layout al que hace referencia
         setContentView(R.layout.fragmento_perfil_contacto);
-        //Se asigna la referencia a los campos en el layuot
+        //Se asigna la referenciaampos en el layuot
         foto = findViewById(R.id.foto_contacto);
         nombre = findViewById(R.id.nombre_contacto);
         telefono = findViewById(R.id.telefono_contacto);
@@ -47,7 +47,7 @@ public class MostrarContacto extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_CALL);
                 intent.setData(Uri.parse("tel:" + telefono.getText().toString().replace("-", "")));
 
-                //verifica permisos
+
                 if (ContextCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     Activity activity = (Activity) getApplicationContext();
                     ActivityCompat.requestPermissions(activity, new String[]{android.Manifest.permission.CALL_PHONE}, PERMISSIONS_REQUEST_PHONE_CALL);

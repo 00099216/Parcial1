@@ -1,66 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+    android:orientation="vertical"
+    tools:context=".AgregarContacoActivity">
 
-        <ImageView
-            android:id="@+id/foto_contacto"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/generic_picture"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/agregar_foto"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/generic_picture" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/subir_foto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:src="@drawable/mas" />
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nombre"
-            android:textSize="25dp"/>
+            android:textSize="25dp" />
+
         <EditText
             android:id="@+id/add_nombre_contacto"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:text="" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Telefono"
             android:textSize="25dp" />
+
         <EditText
             android:id="@+id/add_telefono_contacto"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:text="" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Correo"
-            android:textSize="25dp"/>
+            android:textSize="25dp" />
+
         <EditText
             android:id="@+id/add_correo_contacto"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:text="" />
+
         <Button
             android:id="@+id/crear_contacto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:text="Aregar"
-            />
+            android:text="Aregar" />
     </LinearLayout>
 
 
-
-</LinearLayout>
+</ScrollView>

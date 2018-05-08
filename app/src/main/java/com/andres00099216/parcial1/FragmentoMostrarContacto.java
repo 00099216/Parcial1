@@ -26,9 +26,7 @@ public class FragmentoMostrarContacto extends Fragment {
     private TextView telefono;
     private TextView correo;
     private ImageView llamar;
-    private ImageView compartir;
-    private String path;
-    Contacto C;
+
     private static final int PERMISSIONS_REQUEST_PHONE_CALL = 101;
 
     Contacto contacto;
@@ -58,32 +56,7 @@ public class FragmentoMostrarContacto extends Fragment {
             }
         });
 
-        compartir = view.findViewById(R.id.compartir);
-        //Donde se comparte
-        compartir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                //Esto no funciona xdxdxdx
-                Uri imageUri;
-
-                if (path == "")
-                    imageUri = Uri.parse("android.resource://com.andres00099216.parcial1/drawable/generic_picture.png");
-                else
-                    imageUri = Uri.parse(path);
-
-                Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
-                emailIntent.setType("image/*");
-                emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "share");
-                emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "name" + nombre.getText() + "\n" +
-                        "telefono" + telefono.getText() + "\n" + "correo" + correo.getText());
-                emailIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
-
-                //Se inicia el evento
-                startActivity(Intent.createChooser(emailIntent, "enviando"));
-
-            }
-        });
 
         Bundle bundle = this.getArguments();
 

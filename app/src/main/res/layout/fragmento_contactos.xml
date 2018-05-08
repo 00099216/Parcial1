@@ -1,55 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".FragmentoContactos">
 
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:animateLayoutChanges="true">
-        <TableRow android:gravity="center">
-            <Button
-                android:id="@+id/toda"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:text="Contactos" />
 
-            <Button
-                android:id="@+id/favoritos"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:background="#fff"
-                android:text="favorito" />
-        </TableRow>
-        <TableRow>
-            <View
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="4dp"
-                android:background="@color/colorPrimary"
-                android:id="@+id/leftV"
-                />
-            <View
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="4dp"
-                android:background="@color/colorPrimary"
-                android:id="@+id/rightV"
-                android:visibility="invisible"
-                />
-        </TableRow>
-    </TableLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view_contactos"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+
         />
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/agregar_contacto"
@@ -59,4 +23,4 @@
         android:src="@drawable/mas"
         android:layout_margin="16dp"
         />
-</GridLayout>
+</FrameLayout>

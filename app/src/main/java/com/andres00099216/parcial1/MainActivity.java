@@ -3,11 +3,15 @@ package com.andres00099216.parcial1;
 import android.Manifest;
 import android.app.SearchManager;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.support.design.widget.TabLayout;
 
@@ -24,6 +28,7 @@ import android.view.MenuInflater;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -124,21 +129,43 @@ public class MainActivity extends AppCompatActivity {
             ContentResolver cr = getContentResolver();
             //Cursor que recorre las tablas integradas de los contactos
             Cursor general = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+            if (general.getCount() > 0) {
+                //Se recorren las tablas
+                while (general.moveToNext()) {
+                    String id = general.getString(general.getColumnIndex(ContactsContract.Contacts._ID));
+                    if (general.getInt(general.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER)) > 0) {
+                        String nombre = general.getString(general.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                        String foto = general.getString(general.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_URI));
+                        //cuando no hay foto se le pone una por defecto para evitar errores
+                        if (foto == null) {
+                            Uri rfoto = Uri.parse("android.resource://com.andres00099216.parcial1/" + R.drawable.generic_picture);
+                            foto = rfoto.toString();
+                        }
+                        //se inicializan
+                        String correo = "";
+                        String telefono = "";
 
-            //Se recorren las tablas
-            while (general.moveToNext()) {
-                //Se obtiene el ID del numero
-                String id = general.getString(general.getColumnIndex(ContactsContract.Contacts._ID));                //Su nombre
-                String nombre = general.getString(general.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                String foto = general.getString(general.getColumnIndex(ContactsContract.CommonDataKinds.Phone.PHOTO_URI));
-                String correo = general.getString(general.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
-                String telefono = general.getString(general.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                        if (Integer.parseInt(general.getString(general.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0) {
+                            Cursor telefonoCursor = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?", new String[]{id}, null);
+                            while (telefonoCursor.moveToNext()) {
 
-                //Se agrega el contacto
-                Contactos.add(new Contacto(Integer.parseInt(id), nombre, telefono, correo, false, foto));
+                                telefono = telefonoCursor.getString(telefonoCursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                            }
+                            telefonoCursor.close();
+                        }
+
+                        Cursor correoCursor = cr.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI, null, ContactsContract.CommonDataKinds.Email.CONTACT_ID + " = ?", new String[]{id}, null);
+                        while (correoCursor.moveToNext()) {
+                            //Si existe un telefono se agrega a la lista
+                            correo = correoCursor.getString(correoCursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.DATA));
+                        }
+                        //Se cierra Cursor
+                        correoCursor.close();
+                        Contactos.add(new Contacto(Integer.parseInt(id), nombre, telefono, correo, false, foto));
+                    }
+                }
+                general.close();
             }
-            //Se cierra el Cursor
-            general.close();
             //Si falla algo tira el error
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -147,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permiso, int[] grantResults) {
-        //Usando una variable estatica preguntamos pormedio de este como un puerto, si es concedido el permiso
+
         if (requestCode == PERMISSIONS_REQUEST_READ_CONTACTS) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 mostrarContacto();
