@@ -67,7 +67,7 @@ public class AgregarContacoActivity extends AppCompatActivity implements Seriali
                 Intent intent = new Intent(v.getContext(), MainActivity.class);
                 //Se crea el nuevo contacto
                 Contacto Contactos = new Contacto(-1, nombre.getText().toString(), telefono.getText().toString(), correo.getText().toString(), false, fotoUri + "");
-                intent.putExtra("ADD", Contactos);
+                intent.putExtra("ADDED", Contactos);
                 Contactos.setId(Contactos.getAmount());
                 v.getContext().startActivity(intent);
             }
